@@ -16,22 +16,25 @@ public class EjercicioException8 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner scr= new Scanner(System.in);
+        Scanner scr = new Scanner(System.in);
         System.out.println("Ingrese una palabra: ");
-        String palabra= scr.nextLine();
+        String palabra = scr.nextLine();
         System.out.println("Ingrese un numero: ");
-        int numero= scr.nextInt();
+        int numero = scr.nextInt();
         try{
-            System.out.println("la posisicion es: "+caracterEn(palabra,numero));
-           
+        System.out.println("la posisicion es: " + caracterEn(palabra, numero));
         }
         catch(Exception e){
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
-        // TODO code application logic here
     }
-    public static char caracterEn(String palabra, int numero ){
-        return palabra.charAt(numero) ;
+public static char caracterEn(String palabra, int numero ) throws Exception {
+        if (numero<palabra.length())
+            return  palabra.charAt(numero);
+         else
+            throw new Exception("posicion incorrecta");
+    // TODO code application logic here
     }
-    
 }
+    
+
